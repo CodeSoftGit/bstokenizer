@@ -1,4 +1,7 @@
 from setuptools import setup, find_packages
+import os
+import sys
+import subprocess
 
 with open("README.md", "r", encoding="utf-8") as fh:
     long_description = fh.read()
@@ -34,6 +37,12 @@ setup(
             "pytest>=6.0",
             "pytest-cov",
             "black",
+        ],
+    },
+    # Add entry points for command line scripts
+    entry_points={
+        'console_scripts': [
+            'bsconvert=bstokenizer.cli:convert_map',
         ],
     },
 )
