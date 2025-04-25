@@ -1,6 +1,6 @@
 import json
 import sys
-from typing import Dict, Any, List, Optional, Tuple
+from typing import Dict, Any, Tuple
 import logging
 import os
 
@@ -892,13 +892,13 @@ def main():
     if target_version is None:
         if "_version" in map_data:
             target_version = "v3"  # Convert from v2 to v3
-            print(f"Auto-detected v2 format, converting to v3")
+            print("Auto-detected v2 format, converting to v3")
         elif map_data.get("version", "").startswith("4"):
             target_version = "v3"  # Convert from v4 to v3
-            print(f"Auto-detected v4 format, converting to v3")
+            print("Auto-detected v4 format, converting to v3")
         elif "version" in map_data:
             target_version = "v2"  # Convert from v3 to v2
-            print(f"Auto-detected v3 format, converting to v2")
+            print("Auto-detected v3 format, converting to v2")
         else:
             print("Could not auto-detect map version. Please specify --v2, --v3 or --v4")
             sys.exit(1)
@@ -923,7 +923,7 @@ def main():
             with open(lightshow_file, 'w', encoding='utf-8') as f:
                 json.dump(lightshow, f, indent=2)
                 
-            print(f"Conversion completed:")
+            print("Conversion completed:")
             print(f"- Beatmap: {beatmap_file}")
             print(f"- Lightshow: {lightshow_file}")
         else:

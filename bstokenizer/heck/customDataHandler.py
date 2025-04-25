@@ -1,7 +1,7 @@
 # This is a basic handler for custom data in elements.
 from bstokenizer.maptokenizer import TokenType
-from bstokenizer.heck.utils import beatwalls_coords_to_basegame, basegame_coords_to_beatwalls # CustomData coords are beatwalls coords.
-from typing import Union, Dict, Any
+from bstokenizer.heck.utils import beatwalls_coords_to_basegame # CustomData coords are beatwalls coords.
+from typing import Dict, Any
 import logging
 import copy
 

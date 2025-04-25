@@ -6,7 +6,9 @@ with open("README.md", "r", encoding="utf-8") as fh:
 # Get the version from the version.py file
 # This is a workaround to avoid circular imports
 with open("bstokenizer/version.py", "r") as f:
-    exec(f.read())
+    version_dict = {}
+    exec(f.read(), version_dict)
+    __version__ = version_dict["__version__"]
 
 setup(
     name="bstokenizer",

@@ -1,6 +1,5 @@
 import json
 from typing import Dict, List, Union, Optional, Set
-from enum import Enum
 from bstokenizer import mapconvert, MapTokenType as TokenType
 from bstokenizer.heck import customDataHandler
 

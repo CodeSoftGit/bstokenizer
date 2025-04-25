@@ -1,9 +1,6 @@
-import json
 import io
 from typing import Dict, List, Union, Optional, Set, BinaryIO, Any
-from enum import Enum
 from bsor.Bsor import Bsor, make_bsor, VRObject, Info, Frame, Note, Wall, Height, Pause, ControllerOffsets, UserData
-from bsor.Bsor import NOTE_EVENT_GOOD, NOTE_EVENT_BAD, NOTE_EVENT_MISS, NOTE_EVENT_BOMB
 from bsor.Bsor import lookup_dict_scoring_type, lookup_dict_event_type, MAGIC_HEX
 from bstokenizer import ReplayTokenType as TokenType
 
