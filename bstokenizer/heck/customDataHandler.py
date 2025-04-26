@@ -7,11 +7,23 @@ import copy
 
 # Designed for v3 only, use bstokenizer.mapconvert.convert for any other version.
 
-def warn(msg: str = "No message") -> None:
+# Track which warnings have been issued
+_warnings_issued = set()
+
+def warn(msg: str = "No message", warning_key: str = None) -> None:
     """
-    Log a warning message.
+    Log a warning message only once per unique warning_key.
+    
+    Args:
+        msg: Warning message to display
+        warning_key: Unique identifier for this warning type
     """
-    logging.warning(msg)
+    if warning_key is None:
+        warning_key = msg
+        
+    if warning_key not in _warnings_issued:
+        _warnings_issued.add(warning_key)
+        logging.warning(msg)
 
 def parse_custom_data(object_type: Any, object_data) -> Dict:
     """
@@ -30,7 +42,7 @@ def parse_custom_data(object_type: Any, object_data) -> Dict:
     result = copy.deepcopy(object_data)
     
     if object_type == TokenType.BASIC_EVENT:
-        warn("Custom data is not supported for basic events yet. (Coming soon)")
+        warn("Custom data is not supported for basic events yet. (Coming soon)", "basic_event_custom_data")
         return result
     
     # Handle coordinate conversion for supported types

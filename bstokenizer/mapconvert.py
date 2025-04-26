@@ -9,9 +9,20 @@ import os
 # This file is very cluttered but it works. PLEASE do not use this outside of the internals of this project as it will likely change in the future.
 # TODO: Clean this up and make it more readable.
 
+__warnings_issued = set()
+
 def warn(message: str = "No message"):
     """Print a warning message"""
-    logging.warning(message)
+    
+    if message not in __warnings_issued:
+        __warnings_issued.add(message)
+        # Print the warning message to stderr
+        print(f"WARNING: {message}", file=sys.stderr)
+        # Log the warning message
+        logging.basicConfig(level=logging.WARNING, format='%(asctime)s - %(levelname)s - %(message)s')
+    else:
+        # If the message has already been issued, do not print it again
+        return
 
 
 def convert(map_data: Dict[str, Any], target_version: str) -> Any:
