@@ -1,7 +1,9 @@
 from enum import Enum
 
+
 class MapTokenType(Enum):
     """Enum for different types of elements in a Beat Saber map"""
+
     BPM = "bpm"
     ROTATION = "rotation"
     COLOR_NOTE = "color_note"
@@ -17,8 +19,10 @@ class MapTokenType(Enum):
     LIGHT_TRANSLATION = "light_translation"
     VFX_EVENT = "vfx_event"
 
+
 class ReplayTokenType(Enum):
     """Enum for different types of elements in a Beat Saber replay"""
+
     INFO = "info"
     FRAME = "frame"
     NOTE = "note"
